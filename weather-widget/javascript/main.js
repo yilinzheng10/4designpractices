@@ -1,9 +1,10 @@
-let input = document.querySelector(".zipcode");
-let btn = document.querySelector(".search-button");
-let form = document.querySelector("form");
+document.addEventListener('DOMContentLoaded', () => {
+    let input = document.querySelector(".zipcode");
+    let btn = document.querySelector(".search-button");
+    let form = document.querySelector("form");
 
-let CITY_NAME = document.querySelector(".city_name");
-let CITY_TEMP = document.querySelector(".temperature");
+    let CITY_NAME = document.querySelector(".city_name");
+    let CITY_TEMP = document.querySelector(".temperature");
 
 //function to get weather data
 const getWeatherData = (zip) => {
@@ -28,10 +29,10 @@ const getWeatherData = (zip) => {
             CITY_TEMP.textContent = weather_in_celsius + " C";
 
             //get weather icon
-            let WEATHER_ICON = local_weather_data.weather[0].WEATHER_ICON;
-            image.setAttribute('src','https://openweathermap.org/img/wn/${WEATHER_ICON}@2x.png');
+            let WEATHER_ICON = local_weather_data.weather[0].icon;
+            image.setAttribute('src', `https://openweathermap.org/img/wn/${WEATHER_ICON}@2x.png`)
         });
-} 
+};
 
 // function for form submission
 const getZipCode = (event) => {
@@ -46,3 +47,5 @@ form.reset();
 input.focus();
 
 let image = document.querySelector("img");
+
+});
