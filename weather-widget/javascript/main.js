@@ -1,10 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let input = document.querySelector(".zipcode");
-    let btn = document.querySelector(".search-button");
-    let form = document.querySelector("form");
+let input = document.querySelector(".zipcode");
+let btn = document.querySelector(".search-button");
+let form = document.querySelector("form");
 
-    let CITY_NAME = document.querySelector(".city_name");
-    let CITY_TEMP = document.querySelector(".temperature");
+let CITY_NAME = document.querySelector(".city_name");
+let CITY_TEMP = document.querySelector(".temperature");
 
 //function to get weather data
 const getWeatherData = (zip) => {
@@ -47,5 +46,3 @@ form.reset();
 input.focus();
 
 let image = document.querySelector("img");
-
-});
