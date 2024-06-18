@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //function to get weather data
 const getWeatherData = (zip) => {
     let API_KEY = config.WEATHER_API_KEY;
-    let API_ENDPOINT = `http://api.openweathermap.org/data/2.5/weather?zip=${zip}&APPID=${config.WEATHER_API_KEY}`;
+    let API_ENDPOINT = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&APPID=${config.WEATHER_API_KEY}`;
 
     fetch(API_ENDPOINT)
         .then((response) => response.json())
