@@ -5,6 +5,8 @@ let form = document.querySelector("form");
 let CITY_NAME = document.querySelector(".city_name");
 let CITY_TEMP = document.querySelector(".temperature");
 
+let image = document.querySelector("img");
+
 //function to get weather data
 const getWeatherData = (zip) => {
     let API_KEY = config.WEATHER_API_KEY;
@@ -42,7 +44,6 @@ const getZipCode = (event) => {
 
 btn.addEventListener('click', getZipCode);
 
+//clear value of input field after request, give focus to the input field
 form.reset();
 input.focus();
-
-let image = document.querySelector("img");
