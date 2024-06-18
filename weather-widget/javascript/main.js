@@ -1,9 +1,14 @@
 let input = document.querySelector(".zipcode");
 let btn = document.querySelector(".search-button");
+let form = document.querySelector("form");
 
-getWeatherData = (zip) => {
+let CITY_NAME = document.querySelector(".city-name");
+let CITY_TEMP = document.querySelector(".temperature");
+
+//function to get weather data
+const getWeatherData = (zip) => {
     let API_KEY = config.WEATHER_API_KEY;
-    let API_ENDPOINT = `http://api.openweathermap.org/data/2.5/weather?zip=10128&APPID=${config.WEATHER_API_KEY}`;
+    let API_ENDPOINT = `http://api.openweathermap.org/data/2.5/weather?zip=${zip}&APPID=${config.WEATHER_API_KEY}`;
 
     fetch(API_ENDPOINT)
         .then((response) => response.json())
@@ -11,14 +16,31 @@ getWeatherData = (zip) => {
             //store the data in a variable of choosing
             let local_weather_data = data
             //log the data to the browser console
-            console.log(data);
+            console.log(local_weather_data);
+
+            //manipulate city name content
+            CITY_NAME.textContent = local_weather_data.name;
+
+            //process temp data before manipulating the content
+            let weather_in_celsius = Math.round(
+                local_weather_data.main.temp - 273
+            );
+            CITY_TEMP.textContent = weather_in_celsius + " C";
+
+            let WEATHER_ICON = local_weather_data.weather[0].WEATHER_ICON;
+            image.setAttribute('src','https://openweathermap.org/img/wn/${WEATHER_ICON}@2x.png');
         });
 } 
 
 const getZipCode = (event) => {
     event.preventDefault();
     let ZIP_CODE = input.value;
-    getWeatherData(getZipCode);
+    getWeatherData(ZIP_CODE);
 };
 
 btn.addEventListener('click', getZipCode);
+
+form.reset();
+input.focus();
+
+let image = document.querySelector("img");
