@@ -15,7 +15,7 @@ getWeatherData = (zip) => {
         });
 } 
 
-const getZipCode(event) {
+const getZipCode = (event) => {
     event.preventDefault();
     let ZIP_CODE = input.value;
     getWeatherData(getZipCode);
