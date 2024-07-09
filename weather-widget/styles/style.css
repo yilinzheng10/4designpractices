@@ -45,6 +45,7 @@ input::placeholder {
 
 .output_container {
     text-align: center;
+    margin-top: 20%;
 }
 
 .city_name, .temperature {
