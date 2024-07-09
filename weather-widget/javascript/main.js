@@ -1,3 +1,4 @@
+//event listener
 let input = document.querySelector(".zipcode");
 let btn = document.querySelector(".search-button");
 let form = document.querySelector("form");
